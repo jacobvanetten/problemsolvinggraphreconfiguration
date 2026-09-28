@@ -13,4 +13,4 @@ def test_pyvis_colors_and_passages(tmp_path):
     assert g.edge("rainfall", "crop_yield").passage in by_key[("rainfall", "crop_yield")]["title"]
 
     out = write_html(g, tmp_path / "toy.html")
-    assert "crop_yield" in out.read_text()
+    assert "crop_yield" in out.read_text(encoding="utf-8")
