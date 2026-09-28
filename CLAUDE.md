@@ -20,7 +20,7 @@ the system's behaviour when one claim (edge sign) is reversed.
 | `schema.py` | Pydantic models `Node`, `SignedEdge`, `SignedGraph`; networkx and pandas conversion |
 | `analysis.py` | `path_signs`, `net_effect`, `cycles`, `cycles_dataframe`, `flip_report` |
 | `viz.py` | pyvis rendering (`to_pyvis`, `write_html`) |
-| `toy.py` | `toy_graph()` — the small reference graph used by tests and examples |
+| `toy.py` | `toy_graph()` — the small reference graph; `seeded_toy_graph()` — the same plus an improved seed |
 
 ## Schema conventions
 

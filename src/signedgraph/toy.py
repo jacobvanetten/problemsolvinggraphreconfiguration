@@ -8,6 +8,16 @@ Structure (signs in brackets):
     food_price -[+]-> farm_income -[+]-> fertiliser_use -[+]-> crop_yield  (balancing loop B1)
 
 So ``rainfall`` has a *mixed* effect on ``hunger`` (via yields: -, via floods: +).
+
+``seeded_toy_graph()`` adds an improved seed variety that raises both yield and
+grain quality; quality carries a price premium:
+
+    improved_seed -[+]-> crop_yield
+    improved_seed -[+]-> grain_quality -[+]-> food_price
+
+The seed has no incoming edges, so the loops are unchanged, but its effect on
+``food_price`` is *mixed* (more supply: -, premium quality: +), and so is its effect
+on everything downstream of price.
 """
 
 from signedgraph.schema import Node, SignedEdge, SignedGraph
@@ -25,13 +35,28 @@ _EDGES = [
     ("fertiliser_use", "crop_yield", 1, "Fertilised plots yielded noticeably more grain."),
 ]
 
+_SEED_EDGES = [
+    ("improved_seed", "crop_yield", 1, "Fields sown with the new seed variety produced markedly more grain per hectare."),
+    ("improved_seed", "grain_quality", 1, "The new variety also gave fuller, cleaner kernels than the old landrace."),
+    ("grain_quality", "food_price", 1, "Buyers paid a premium for the better grain, lifting market prices."),
+]
 
-def toy_graph() -> SignedGraph:
-    ids = sorted({end for s, t, *_ in _EDGES for end in (s, t)})
+
+def _build(edges: list[tuple[str, str, int, str]]) -> SignedGraph:
+    ids = sorted({end for s, t, *_ in edges for end in (s, t)})
     return SignedGraph(
         nodes=tuple(Node(id=i, label=i.replace("_", " ")) for i in ids),
         edges=tuple(
             SignedEdge(source=s, target=t, sign=sign, passage=p, citation="toy corpus")
-            for s, t, sign, p in _EDGES
+            for s, t, sign, p in edges
         ),
     )
+
+
+def toy_graph() -> SignedGraph:
+    return _build(_EDGES)
+
+
+def seeded_toy_graph() -> SignedGraph:
+    """``toy_graph()`` plus an improved seed that raises yield and grain quality."""
+    return _build(_EDGES + _SEED_EDGES)

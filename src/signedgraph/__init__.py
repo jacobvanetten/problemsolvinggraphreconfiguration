@@ -15,7 +15,7 @@ from signedgraph.analysis import (
     path_signs,
 )
 from signedgraph.schema import Node, Sign, SignedEdge, SignedGraph
-from signedgraph.toy import toy_graph
+from signedgraph.toy import seeded_toy_graph, toy_graph
 
 __all__ = [
     "Cycle",
@@ -34,5 +34,6 @@ __all__ = [
     "flip_report",
     "net_effect",
     "path_signs",
+    "seeded_toy_graph",
     "toy_graph",
 ]
