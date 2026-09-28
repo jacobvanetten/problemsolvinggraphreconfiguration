@@ -10,14 +10,16 @@ Structure (signs in brackets):
 So ``rainfall`` has a *mixed* effect on ``hunger`` (via yields: -, via floods: +).
 
 ``seeded_toy_graph()`` adds an improved seed variety that raises both yield and
-grain quality; quality carries a price premium:
+grain quality. Quality lifts the price farmers fetch per sack, but it also puts more
+premium grain on the market, which lowers the premium price farmers receive:
 
     improved_seed -[+]-> crop_yield
-    improved_seed -[+]-> grain_quality -[+]-> food_price
+    improved_seed -[+]-> grain_quality -[+]-> farm_gate_price -[+]-> farm_income
+    grain_quality -[+]-> premium_supply -[-]-> premium_price -[+]-> farm_gate_price
 
-The seed has no incoming edges, so the loops are unchanged, but its effect on
-``food_price`` is *mixed* (more supply: -, premium quality: +), and so is its effect
-on everything downstream of price.
+The new nodes add no loops and change no baseline effects. Quality's effect on
+``farm_gate_price`` is *mixed* (direct: +, via premium supply: -), and so is its
+effect on everything downstream of the farm-gate price.
 """
 
 from signedgraph.schema import Node, SignedEdge, SignedGraph
@@ -38,7 +40,11 @@ _EDGES = [
 _SEED_EDGES = [
     ("improved_seed", "crop_yield", 1, "Fields sown with the new seed variety produced markedly more grain per hectare."),
     ("improved_seed", "grain_quality", 1, "The new variety also gave fuller, cleaner kernels than the old landrace."),
-    ("grain_quality", "food_price", 1, "Buyers paid a premium for the better grain, lifting market prices."),
+    ("grain_quality", "farm_gate_price", 1, "Farmers fetched a better price per sack for the higher-quality grain."),
+    ("grain_quality", "premium_supply", 1, "Now much more of the higher-quality grain reached the market."),
+    ("premium_supply", "premium_price", -1, "With premium grain plentiful, its price fell."),
+    ("premium_price", "farm_gate_price", 1, "What farmers received for premium grain tracked the premium price."),
+    ("farm_gate_price", "farm_income", 1, "A better price per sack raised farm earnings."),
 ]
 
 
@@ -58,5 +64,5 @@ def toy_graph() -> SignedGraph:
 
 
 def seeded_toy_graph() -> SignedGraph:
-    """``toy_graph()`` plus an improved seed that raises yield and grain quality."""
+    """``toy_graph()`` plus an improved seed; quality has opposing effects on farm-gate price."""
     return _build(_EDGES + _SEED_EDGES)
