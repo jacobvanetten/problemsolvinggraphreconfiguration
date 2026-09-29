@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from typing import Any
 
 from pydantic import BaseModel
 
@@ -10,7 +9,7 @@ from lab.cafe.drift import drift_report
 from lab.cafe.ledger import Ledger
 from lab.cafe.schedule import Params, ScheduleError, TableInfo, plan, validate
 from lab.methods.store import add_version, check_protocol, current, load_history
-from lab.phases.common import active_methods, best_frame, trial_dir
+from lab.phases.common import active_methods, trial_dir
 from lab.run import Run
 from lab.schemas import CafeItems, MethodProtocol, Reception, Revision, Text, words
 

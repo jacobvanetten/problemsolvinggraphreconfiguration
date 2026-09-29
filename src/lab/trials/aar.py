@@ -7,7 +7,7 @@ from typing import Any
 
 from lab.methods.executor import TrialResult
 from lab.run import Run
-from lab.schemas import AAR, MethodProtocol, Persona, Text, words
+from lab.schemas import AAR, MethodProtocol, Text
 
 
 def valid_cites(protocol: MethodProtocol, res: TrialResult) -> tuple[set[str], int]:

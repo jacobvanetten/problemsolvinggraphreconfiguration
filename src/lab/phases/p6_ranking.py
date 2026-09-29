@@ -8,9 +8,8 @@ from typing import Any
 from lab.phases.common import (active_methods, best_frame, load_criteria, persona_ids_terms, trial_dir)
 from lab.ranking.dossier import build_digest, frame_worth, frame_worth_text
 from lab.ranking.studies import run_study
-from lab.methods.store import current, load_history
+from lab.methods.store import current
 from lab.run import Run
-from lab.schemas import AAR
 
 
 def forbidden_for(run: Run, mids: list[str]) -> dict[str, set[str]]:

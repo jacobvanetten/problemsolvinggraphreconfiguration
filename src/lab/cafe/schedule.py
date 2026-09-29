@@ -5,7 +5,7 @@ from __future__ import annotations
 import random
 
 import networkx as nx
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 
 class ScheduleError(RuntimeError):

@@ -7,7 +7,6 @@ import json
 from pydantic import BaseModel
 
 from lab.methods.store import check_protocol, current, load_history
-from lab.phases.common import trial_dir
 from lab.run import Run
 from lab.schemas import Composite, DifferenceMap, Objection, words
 

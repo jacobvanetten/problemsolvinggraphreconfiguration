@@ -5,7 +5,6 @@ from __future__ import annotations
 import json
 import math
 
-import pandas as pd
 
 from lab.methods.executor import cross_team, reference_team
 from lab.methods.store import current

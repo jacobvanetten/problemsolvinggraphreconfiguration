@@ -9,7 +9,7 @@ from typing import Any
 
 from lab.llm import LabError
 from lab.run import Run
-from lab.schemas import FrameSet, MethodProtocol, Persona, Step, StepResult, Text
+from lab.schemas import FrameSet, MethodProtocol, Persona, Step, StepResult
 from lab.toolkit import Toolbox
 
 RX_ROLES = [("breeder", "crop breeder"), ("agronomist", "agronomist"), ("socio-economist", "socio-economist"),

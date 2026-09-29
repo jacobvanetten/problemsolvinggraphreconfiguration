@@ -7,7 +7,6 @@ from typing import Any
 from lab.schemas import Network
 from lab.toolkit.edits import ConsequenceReport, apply_edits_raw, consequence_report
 from lab.toolkit.motifs import list_motifs
-from lab.toolkit.metrics import local_metrics
 import networkx as nx
 
 from lab.toolkit.build import to_undirected

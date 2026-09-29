@@ -8,7 +8,7 @@ from typing import Any
 import pandas as pd
 
 from lab.run import Run
-from lab.schemas import MethodProtocol, Persona, Text, words
+from lab.schemas import MethodProtocol, Text
 
 
 from pydantic import BaseModel, Field

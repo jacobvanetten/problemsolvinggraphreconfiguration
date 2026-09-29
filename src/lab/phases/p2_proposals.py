@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from lab.methods.store import add_version, check_protocol
 from lab.people.pairing import cycle_max_distance, load_distance, make_pairs, executors_for
-from lab.phases.common import DATA
 from lab.phases.p1_lenses import BRIEF
 from lab.run import Run
 from lab.schemas import MethodProtocol, Text

@@ -6,7 +6,7 @@ from pathlib import Path
 
 from lab.methods.executor import Team, TrialResult, run_protocol
 from lab.run import Run
-from lab.schemas import AAR, MethodProtocol, Text, words
+from lab.schemas import AAR, MethodProtocol, Text
 from lab.trials.aar import run_aar
 
 

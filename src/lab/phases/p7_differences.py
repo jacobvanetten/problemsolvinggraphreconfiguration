@@ -12,7 +12,7 @@ from pydantic import BaseModel
 from lab.methods.store import current
 from lab.phases.common import trial_dir
 from lab.run import Run
-from lab.schemas import DifferenceMap, Text, words
+from lab.schemas import DifferenceMap, words
 
 ROWS = ["core_representation", "entry_point", "how_themes_are_found", "how_perspectives_are_reached", "how_analogues_are_found",
         "operators_used_or_invented", "local_and_global_handling", "use_of_the_paradox", "role_of_humans", "cost_in_calls",
