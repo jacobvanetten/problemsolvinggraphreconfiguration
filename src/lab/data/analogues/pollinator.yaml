@@ -1,0 +1,22 @@
+id: pollinator
+name: Plant and pollinator mutualism
+description: Plants give nectar and receive pollination; both sides sanction cheaters
+  over evolutionary time.
+themes:
+- mutual benefit
+- cheating and sanctions
+- exchange between non-humans
+- direct reciprocity
+nodes:
+- plant
+- pollinator
+edges:
+- source: plant
+  target: pollinator
+  flow_type: nutrients
+  form: mutualism
+- source: pollinator
+  target: plant
+  flow_type: material
+  form: mutualism
+status: starter

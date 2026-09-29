@@ -1,0 +1,28 @@
+id: wiki
+name: Wikipedia editing
+description: Editors give edits to strangers; recognition is small; norms and bots
+  keep the commons.
+themes:
+- gift to strangers
+- invisible labour
+- norms enforced by peers
+- commons
+nodes:
+- editor
+- article
+- reader
+- bot
+edges:
+- source: editor
+  target: article
+  flow_type: knowledge
+  form: gift
+- source: article
+  target: reader
+  flow_type: knowledge
+  form: gift
+- source: bot
+  target: article
+  flow_type: labour
+  form: script
+status: starter

@@ -1,0 +1,461 @@
+nodes:
+- id: women_processors
+  label: Women grain processors
+  kind: human_group
+  evidence: &id001
+  - source: toy fixture (illustrative, not evidence)
+    confidence: hypothesis
+  classification: processor
+- id: male_heads
+  label: Male household heads
+  kind: human_group
+  evidence: *id001
+  classification: farm decision maker
+- id: young_men_labour
+  label: Young men selling labour
+  kind: human_group
+  evidence: *id001
+  classification: household member
+  anomaly: counted as household members but earn and decide outside the household
+  aggregates:
+  - young_men_local
+  - young_men_migrant
+- id: pm_landrace
+  label: Pearl millet landrace
+  kind: variety
+  evidence: *id001
+- id: pm_improved
+  label: Improved pearl millet variety
+  kind: variety
+  evidence: *id001
+- id: seed_trader
+  label: Seed trader
+  kind: human_person
+  evidence: *id001
+  classification: trader
+- id: seed_lender
+  label: Community seed lender
+  kind: human_person
+  evidence: *id001
+  classification: lender
+- id: striga
+  label: Striga (parasitic weed)
+  kind: organism
+  evidence: *id001
+- id: quelea
+  label: Quelea birds
+  kind: organism
+  evidence: *id001
+- id: cowpea
+  label: Cowpea
+  kind: organism
+  evidence: *id001
+  classification: intercrop
+- id: livestock
+  label: Livestock
+  kind: organism
+  evidence: *id001
+- id: soil
+  label: Soil fertility
+  kind: environment
+  evidence: *id001
+- id: rainfall
+  label: Rainfall
+  kind: environment
+  evidence: *id001
+- id: breeding_programme
+  label: National breeding programme
+  kind: organisation
+  evidence: *id001
+- id: extension_agent
+  label: Extension agent
+  kind: human_person
+  evidence: *id001
+  mediator: true
+- id: grain_aggregator
+  label: Grain aggregator
+  kind: organisation
+  evidence: *id001
+- id: tricot_platform
+  label: Tricot trial platform
+  kind: artefact
+  evidence: *id001
+  mediator: true
+edges:
+- id: e001
+  source: pm_landrace
+  target: women_processors
+  contribution: grain with good dehulling and flour colour
+  flow_type: material
+  form: gift
+  reciprocity: indirect
+  evidence: *id001
+  expectation:
+    content: timely harvest and careful storage
+    holder: pm_landrace
+    addressee: male_heads
+    kind: functional
+    horizon: season
+  valency:
+    women_processors: 1
+    grain_aggregator: -1
+  extra:
+    path_note: returned via seed selection by women, then male heads' field choices
+- id: e002
+  source: women_processors
+  target: male_heads
+  contribution: food and processed flour for the household
+  flow_type: material
+  form: obligation
+  reciprocity: reciprocated
+  evidence: *id001
+  counter_edge: e003
+  valency:
+    women_processors: 1
+    male_heads: 1
+- id: e003
+  source: male_heads
+  target: women_processors
+  contribution: land access and cash for grinding
+  flow_type: money
+  form: obligation
+  reciprocity: reciprocated
+  evidence: *id001
+  counter_edge: e002
+  valency:
+    women_processors: 1
+    male_heads: 1
+- id: e004
+  source: male_heads
+  target: pm_landrace
+  contribution: field area and seed saving
+  flow_type: labour
+  form: gift
+  reciprocity: pending
+  evidence: *id001
+  expectation:
+    content: yield and reliable grain
+    holder: male_heads
+    addressee: pm_landrace
+    kind: attributed
+    horizon: season
+  valency:
+    male_heads: 1
+- id: e005
+  source: pm_improved
+  target: male_heads
+  contribution: higher yield in good rain
+  flow_type: material
+  form: market
+  reciprocity: pending
+  evidence: *id001
+  valency:
+    male_heads: 1
+    women_processors: -1
+- id: e006
+  source: pm_improved
+  target: women_processors
+  contribution: grain with poorer processing quality
+  flow_type: material
+  form: market
+  reciprocity: refused
+  evidence: *id001
+  valency:
+    women_processors: -1
+    grain_aggregator: 1
+- id: e007
+  source: breeding_programme
+  target: pm_improved
+  contribution: selection and release
+  flow_type: knowledge
+  form: script
+  reciprocity: pending
+  evidence: *id001
+- id: e008
+  source: male_heads
+  target: breeding_programme
+  contribution: trial evaluations
+  flow_type: data
+  form: gift
+  reciprocity: pending
+  evidence: *id001
+  expectation:
+    content: results returned to farmers
+    holder: male_heads
+    addressee: breeding_programme
+    kind: intentional
+    horizon: years
+  valency:
+    male_heads: 1
+    breeding_programme: 1
+- id: e009
+  source: tricot_platform
+  target: breeding_programme
+  contribution: ranked variety data
+  flow_type: data
+  form: script
+  reciprocity: reciprocated
+  evidence: *id001
+  counter_edge: e010
+- id: e010
+  source: breeding_programme
+  target: tricot_platform
+  contribution: trial design and seed packs
+  flow_type: seed
+  form: script
+  reciprocity: reciprocated
+  evidence: *id001
+  counter_edge: e009
+- id: e011
+  source: male_heads
+  target: tricot_platform
+  contribution: rankings of varieties
+  flow_type: data
+  form: gift
+  reciprocity: pending
+  evidence: *id001
+  valency:
+    male_heads: 1
+- id: e012
+  source: women_processors
+  target: tricot_platform
+  contribution: voice in ranking
+  flow_type: recognition
+  form: gift
+  reciprocity: not_expected
+  evidence: *id001
+  valency:
+    women_processors: -1
+- id: e013
+  source: seed_trader
+  target: male_heads
+  contribution: packaged seed
+  flow_type: seed
+  form: market
+  reciprocity: reciprocated
+  evidence: *id001
+  counter_edge: e014
+  valency:
+    male_heads: 1
+    seed_lender: -1
+- id: e014
+  source: male_heads
+  target: seed_trader
+  contribution: cash at planting
+  flow_type: money
+  form: market
+  reciprocity: reciprocated
+  evidence: *id001
+  counter_edge: e013
+- id: e015
+  source: seed_lender
+  target: male_heads
+  contribution: seed on loan
+  flow_type: seed
+  form: obligation
+  reciprocity: pending
+  evidence: *id001
+  expectation:
+    content: repay in seed after harvest
+    holder: seed_lender
+    addressee: male_heads
+    kind: intentional
+    horizon: season
+  valency:
+    male_heads: 1
+    seed_lender: 1
+- id: e016
+  source: male_heads
+  target: seed_lender
+  contribution: repaid seed plus a share
+  flow_type: seed
+  form: obligation
+  reciprocity: pending
+  evidence: *id001
+  valency:
+    seed_lender: 1
+- id: e017
+  source: striga
+  target: pm_landrace
+  contribution: parasitism reducing yield
+  flow_type: harm
+  form: predation
+  reciprocity: not_expected
+  evidence: *id001
+  expectation:
+    content: host to feed on
+    holder: striga
+    addressee: pm_landrace
+    kind: functional
+    horizon: season
+  valency:
+    male_heads: -1
+- id: e018
+  source: cowpea
+  target: soil
+  contribution: nitrogen
+  flow_type: nutrients
+  form: mutualism
+  reciprocity: indirect
+  evidence: *id001
+  extra:
+    path_note: soil supports millet that follows cowpea; returns as shade and residues
+- id: e019
+  source: livestock
+  target: soil
+  contribution: manure
+  flow_type: nutrients
+  form: gift
+  reciprocity: indirect
+  evidence: *id001
+  extra:
+    path_note: crop residues return as fodder via women's and men's decisions
+- id: e020
+  source: soil
+  target: pm_landrace
+  contribution: nutrients
+  flow_type: nutrients
+  form: mutualism
+  reciprocity: indirect
+  evidence: *id001
+  extra:
+    path_note: millet residues feed livestock
+- id: e021
+  source: pm_landrace
+  target: livestock
+  contribution: stover as fodder
+  flow_type: material
+  form: gift
+  reciprocity: indirect
+  evidence: *id001
+  extra:
+    path_note: manure returns to soil then millet
+- id: e022
+  source: rainfall
+  target: pm_landrace
+  contribution: water
+  flow_type: material
+  form: gift
+  reciprocity: not_expected
+  evidence: *id001
+  expectation:
+    content: adequate stand
+    holder: rainfall
+    addressee: pm_landrace
+    kind: attributed
+    horizon: season
+  valency:
+    male_heads: 1
+- id: e023
+  source: rainfall
+  target: striga
+  contribution: germination cues
+  flow_type: material
+  form: gift
+  reciprocity: not_expected
+  evidence: *id001
+- id: e024
+  source: quelea
+  target: pm_landrace
+  contribution: grain loss
+  flow_type: harm
+  form: predation
+  reciprocity: not_expected
+  evidence: *id001
+  valency:
+    male_heads: -1
+    women_processors: -1
+- id: e025
+  source: young_men_labour
+  target: male_heads
+  contribution: labour at weeding and harvest
+  flow_type: labour
+  form: obligation
+  reciprocity: pending
+  evidence: *id001
+  expectation:
+    content: recognition and fees
+    holder: young_men_labour
+    addressee: male_heads
+    kind: intentional
+    horizon: season
+  valency:
+    male_heads: 1
+    young_men_labour: -1
+- id: e026
+  source: male_heads
+  target: young_men_labour
+  contribution: food and status
+  flow_type: recognition
+  form: obligation
+  reciprocity: refused
+  evidence: *id001
+  valency:
+    young_men_labour: -1
+- id: e027
+  source: extension_agent
+  target: male_heads
+  contribution: advice on improved varieties
+  flow_type: knowledge
+  form: script
+  reciprocity: pending
+  evidence: *id001
+  valency:
+    male_heads: 1
+    women_processors: -1
+- id: e028
+  source: women_processors
+  target: grain_aggregator
+  contribution: processed grain for sale
+  flow_type: material
+  form: market
+  reciprocity: reciprocated
+  evidence: *id001
+  counter_edge: e029
+  valency:
+    women_processors: 1
+    grain_aggregator: 1
+- id: e029
+  source: grain_aggregator
+  target: women_processors
+  contribution: cash
+  flow_type: money
+  form: market
+  reciprocity: reciprocated
+  evidence: *id001
+  counter_edge: e028
+- id: e030
+  source: breeding_programme
+  target: extension_agent
+  contribution: new variety information
+  flow_type: knowledge
+  form: script
+  reciprocity: pending
+  evidence: *id001
+- id: e031
+  source: extension_agent
+  target: breeding_programme
+  contribution: field feedback
+  flow_type: knowledge
+  form: gift
+  reciprocity: pending
+  evidence: *id001
+themes:
+- id: T01
+  label: Keeping one's word in exchange
+  kind: universal
+  grounding:
+  - seed_lender
+  - male_heads
+- id: T02
+  label: Being heard by those who decide
+  kind: universal
+  grounding:
+  - women_processors
+  - young_men_labour
+- id: T03
+  label: Grain quality for local foods versus yield
+  kind: situated
+  grounding:
+  - women_processors
+  - grain_aggregator

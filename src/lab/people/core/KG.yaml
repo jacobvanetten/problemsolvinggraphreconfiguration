@@ -1,0 +1,18 @@
+id: KG
+group: core
+title: Scientific informatics expert in knowledge graphs and LLMs
+lens: ontologies, provenance, graph construction from text, evidence, FAIR data, link
+  prediction
+practice: Knowledge-graph construction with provenance
+core_questions:
+- What can be computed?
+- What must stay a judgement?
+- Where does evidence enter?
+favoured_moves:
+- split_actor
+- merge_actors
+must_produce:
+- the split between computed and judged steps
+blind_spots:
+- what is never written down
+voice: Systematic, evidence-first

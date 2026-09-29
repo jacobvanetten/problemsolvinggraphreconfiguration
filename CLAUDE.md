@@ -10,8 +10,9 @@ the system's behaviour when one claim (edge sign) is reversed.
   - `uv sync` — install deps into `.venv`
   - `uv run pytest` — run tests (must pass before committing)
   - `uv add <pkg>` / `uv add --dev <pkg>` — add dependencies (updates `uv.lock`; commit it)
-- Runtime deps: networkx, pydantic, pyvis, pandas. Dev: pytest.
-- Package lives in `src/signedgraph/` (src layout); tests in `tests/`.
+- Runtime deps: networkx, pydantic, pyvis, pandas, numpy, scipy, pyyaml, jinja2, anthropic. Dev: pytest.
+- Two packages in `src/` (src layout): `signedgraph` and `lab`; tests in `tests/`.
+- `uv run pytest -m "not slow"` is the fast suite (~30 s); plain `uv run pytest` also runs the full mock pipeline (minutes).
 
 ## Layout
 
@@ -72,3 +73,19 @@ passage (and citation). Generated `.html` files are git-ignored.
   values in tests deliberately rather than regenerating them from output.
 - Every new analysis function gets tests with hand-checked expected values on the toy
   graph plus edge cases (no path, unknown node, acyclic graph).
+
+## Method design lab (`src/lab/`)
+
+Simulated multidisciplinary team designs, trials, ranks and integrates reframing methods (spec: `reframing_step_spec.md` v0.2).
+Operating procedure: `docs/lab_procedure.md`. Entry point: `uv run lab ...` (`dry-run`, `run`, `resume`, `phase`, `status`, `estimate`).
+
+- Independent of `signedgraph`: it uses its own exchange-network schema (`lab/schemas.py`, `lab/toolkit/`).
+- Every LLM call goes through `lab/llm.py` (`LLM.call`): persona, task, context bundle, schema; JSON validated with pydantic,
+  one retry with the error, then `LabError`. `backend: mock` (`lab/mock.py`) is deterministic and templated: it exercises tool use
+  against the real network, the validators and the ranking bridge, but its content and its random judgements carry no information.
+- State is files under `runs/<run_id>/`; phases are `lab/phases/p0..p10`. A finished phase writes `state/p<n>.done`.
+  Files marked `source: human` are never overwritten (`Run.write_text`).
+- Ranking calls the `tricot-ranking` skill CLI (`ranking/tricot_bridge.py`); it is never reimplemented. Raw judgements are purged only after Phase 7.
+- Case B is sealed (`cases/seal.py`) until Phase 9: the adapter refuses any prompt containing its text.
+- Operators compile to edit lists and go through `apply_edits`, so a named operator and its hand-written edits give the same report.
+- Toy fixtures (`tests/fixtures/`, `lab/data/toy_cases/`) are illustrative; all their edges are `hypothesis`. Changing them means updating hand-checked test values.

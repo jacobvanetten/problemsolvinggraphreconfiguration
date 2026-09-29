@@ -1,0 +1,23 @@
+id: oss_maintenance
+name: Open-source maintenance
+description: Maintainers give code; users consume and rarely return contributions;
+  maintainers burn out.
+themes:
+- free riding
+- unreturned contribution
+- invisible labour
+- open reciprocity loop
+nodes:
+- maintainer
+- user
+- company
+edges:
+- source: maintainer
+  target: user
+  flow_type: knowledge
+  form: gift
+- source: maintainer
+  target: company
+  flow_type: knowledge
+  form: gift
+status: starter

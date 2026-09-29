@@ -1,0 +1,17 @@
+id: CB
+group: core
+title: Crop breeder with long experience in grain crops in Sub-Saharan Africa
+lens: breeding pipelines, product profiles, stage gates, release, seed systems, grain
+  quality for local foods, adoption
+practice: Product profile and stage-gate planning
+core_questions:
+- Could a national programme run this method in the time it has?
+- What decision does it feed?
+favoured_moves:
+- rebind
+- extend_boundary
+must_produce:
+- the breeding decision each method step serves
+blind_spots:
+- institutional path dependence
+voice: Practical, time-conscious, decision-oriented

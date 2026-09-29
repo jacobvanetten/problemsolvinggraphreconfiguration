@@ -1,0 +1,27 @@
+id: village_labour
+name: Labour exchange in farming communities
+description: Households swap labour at peak periods; the debt is remembered across
+  seasons.
+themes:
+- labour swapped over seasons
+- remembered debt
+- obligation held by the group
+- delayed reciprocity
+nodes:
+- h1
+- h2
+- h3
+edges:
+- source: h1
+  target: h2
+  flow_type: labour
+  form: obligation
+- source: h2
+  target: h3
+  flow_type: labour
+  form: obligation
+- source: h3
+  target: h1
+  flow_type: labour
+  form: obligation
+status: starter

@@ -1,0 +1,23 @@
+id: potlatch
+name: Potlatch
+description: Hosts give away wealth publicly; guests owe return feasts; rank is held
+  through giving.
+themes:
+- status through giving
+- obligation to return
+- public witnessing
+- exchange that binds
+nodes:
+- host
+- guest
+- rival
+edges:
+- source: host
+  target: guest
+  flow_type: material
+  form: gift
+- source: guest
+  target: host
+  flow_type: recognition
+  form: obligation
+status: starter

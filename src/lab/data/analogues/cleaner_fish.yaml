@@ -1,0 +1,22 @@
+id: cleaner_fish
+name: Cleaner fish and clients
+description: Cleaner fish remove parasites; clients give food and refrain from eating
+  them; cheating is punished by client departure.
+themes:
+- cheating and sanctions
+- mutual benefit
+- exchange between non-humans
+- partner choice
+nodes:
+- cleaner
+- client
+edges:
+- source: cleaner
+  target: client
+  flow_type: harm
+  form: mutualism
+- source: client
+  target: cleaner
+  flow_type: nutrients
+  form: mutualism
+status: starter

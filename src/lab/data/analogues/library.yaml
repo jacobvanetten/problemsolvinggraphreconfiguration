@@ -1,0 +1,27 @@
+id: library
+name: Public library lending
+description: Borrowers take books and return them; the library depends on return and
+  care.
+themes:
+- borrowing and returning
+- shared stock
+- care for common goods
+- keeping one's word
+nodes:
+- reader
+- library
+- other_reader
+edges:
+- source: library
+  target: reader
+  flow_type: knowledge
+  form: obligation
+- source: reader
+  target: library
+  flow_type: material
+  form: obligation
+- source: library
+  target: other_reader
+  flow_type: knowledge
+  form: obligation
+status: starter

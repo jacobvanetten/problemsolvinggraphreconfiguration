@@ -1,0 +1,19 @@
+# Persona
+{{ persona }}
+
+# Task ({{ task }})
+{{ instruction }}
+{% if reminder %}
+{{ reminder }}
+{% endif %}
+# Context
+{{ context }}
+
+# Output
+Reply with one JSON object only, matching this JSON schema. No prose outside the JSON.
+{{ schema }}
+{% if error %}
+# Previous attempt failed validation
+{{ error }}
+Fix the problem and reply again.
+{% endif %}

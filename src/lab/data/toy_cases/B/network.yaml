@@ -1,0 +1,160 @@
+nodes:
+- id: commuters
+  label: Commuters
+  kind: human_group
+  evidence: &id001
+  - source: toy fixture case B (illustrative)
+    confidence: hypothesis
+- id: shopkeepers
+  label: Island shopkeepers
+  kind: human_group
+  evidence: *id001
+- id: ferry_company
+  label: Ferry company
+  kind: organisation
+  evidence: *id001
+- id: harbourmaster
+  label: Harbourmaster
+  kind: human_person
+  evidence: *id001
+- id: ferry
+  label: The ferry vessel
+  kind: artefact
+  evidence: *id001
+- id: fog
+  label: Fog
+  kind: environment
+  evidence: *id001
+- id: timetable
+  label: Timetable
+  kind: information
+  evidence: *id001
+  mediator: true
+- id: railhead
+  label: Mainland railhead
+  kind: institution
+  evidence: *id001
+- id: fog_log
+  label: Paper fog log
+  kind: information
+  evidence: *id001
+  anomaly: a record that only its author reads
+edges:
+- id: b01
+  source: ferry_company
+  target: commuters
+  contribution: sailings
+  flow_type: material
+  form: market
+  reciprocity: reciprocated
+  evidence: *id001
+  valency:
+    commuters: 1
+- id: b02
+  source: commuters
+  target: ferry_company
+  contribution: fares
+  flow_type: money
+  form: market
+  reciprocity: reciprocated
+  evidence: *id001
+- id: b03
+  source: harbourmaster
+  target: fog_log
+  contribution: daily fog entries
+  flow_type: data
+  form: script
+  reciprocity: pending
+  evidence: *id001
+- id: b04
+  source: fog
+  target: ferry
+  contribution: cancellations
+  flow_type: harm
+  form: predation
+  reciprocity: not_expected
+  evidence: *id001
+  valency:
+    commuters: -1
+    ferry_company: -1
+- id: b05
+  source: timetable
+  target: commuters
+  contribution: expected departure times
+  flow_type: data
+  form: script
+  reciprocity: pending
+  evidence: *id001
+  valency:
+    commuters: 1
+    shopkeepers: -1
+- id: b06
+  source: ferry_company
+  target: timetable
+  contribution: added sailings
+  flow_type: labour
+  form: script
+  reciprocity: pending
+  evidence: *id001
+- id: b07
+  source: ferry
+  target: railhead
+  contribution: connecting passengers
+  flow_type: material
+  form: obligation
+  reciprocity: indirect
+  evidence: *id001
+  valency:
+    commuters: -1
+  extra:
+    path_note: railhead delays feed back into commuter complaints
+- id: b08
+  source: railhead
+  target: commuters
+  contribution: onward trains
+  flow_type: material
+  form: market
+  reciprocity: indirect
+  evidence: *id001
+  extra:
+    path_note: missed connections lower fares paid later
+- id: b09
+  source: shopkeepers
+  target: commuters
+  contribution: island goods and news
+  flow_type: material
+  form: gift
+  reciprocity: pending
+  evidence: *id001
+  valency:
+    shopkeepers: 1
+- id: b10
+  source: commuters
+  target: shopkeepers
+  contribution: custom
+  flow_type: money
+  form: market
+  reciprocity: reciprocated
+  evidence: *id001
+- id: b11
+  source: fog
+  target: harbourmaster
+  contribution: fog readings
+  flow_type: data
+  form: gift
+  reciprocity: not_expected
+  evidence: *id001
+- id: b12
+  source: harbourmaster
+  target: ferry_company
+  contribution: cancellation calls
+  flow_type: knowledge
+  form: script
+  reciprocity: pending
+  evidence: *id001
+themes:
+- id: T01
+  label: Being on time
+  kind: universal
+  grounding:
+  - commuters

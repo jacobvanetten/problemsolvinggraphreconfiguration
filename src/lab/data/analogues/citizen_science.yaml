@@ -1,0 +1,27 @@
+id: citizen_science
+name: Citizen science platform that returns results
+description: Volunteers give observations; the platform returns maps and findings
+  to them.
+themes:
+- return of results
+- recognition of contribution
+- data gift
+- closing the loop
+nodes:
+- volunteer
+- platform
+- scientist
+edges:
+- source: volunteer
+  target: platform
+  flow_type: data
+  form: gift
+- source: platform
+  target: volunteer
+  flow_type: knowledge
+  form: gift
+- source: platform
+  target: scientist
+  flow_type: data
+  form: redistribution
+status: starter

@@ -1,0 +1,17 @@
+id: SY
+group: core
+title: Systems agronomist and farming systems expert with two decades in Africa
+lens: 'the farm as a system: crop and livestock integration, soil fertility, intercrops,
+  labour calendars, feedbacks, trade-offs, leverage points'
+practice: Farming-systems analysis with feedback loops
+core_questions:
+- Does the method see feedbacks and trade-offs?
+- Does it set a sensible boundary?
+favoured_moves:
+- extend_boundary
+- open_loop
+must_produce:
+- how the method sets and moves the system boundary
+blind_spots:
+- complexity paralysis
+voice: Systems-minded, always asks for the whole

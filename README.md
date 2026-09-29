@@ -21,3 +21,12 @@ write_html(g, "toy.html")                         # interactive pyvis view
 ```
 
 See `CLAUDE.md` for schema and analysis conventions.
+
+## Method design lab
+
+`src/lab/` is a simulated team that designs, trials, ranks and integrates reframing methods. See `docs/lab_procedure.md`.
+
+```bash
+uv run lab dry-run --dir dry_run_workspace   # full mock run on toy cases (templated content; tests the machinery)
+uv run lab estimate --config config.yaml     # call estimate for a real run
+```

@@ -1,0 +1,23 @@
+id: blood_donation
+name: Blood donation system
+description: Donors give without payment; recipients are strangers; the system depends
+  on trust that the gift is used well (Titmuss).
+themes:
+- gift to strangers
+- generalised reciprocity
+- trust in the system
+- not being paid
+nodes:
+- donor
+- service
+- patient
+edges:
+- source: donor
+  target: service
+  flow_type: material
+  form: gift
+- source: service
+  target: patient
+  flow_type: material
+  form: redistribution
+status: starter

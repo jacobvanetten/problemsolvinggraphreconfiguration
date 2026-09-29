@@ -1,0 +1,31 @@
+id: mycorrhiza
+name: Mycorrhizal exchange network
+description: Fungi trade soil nutrients for plant carbon across a shared network;
+  plants that give more get more.
+themes:
+- exchange between non-humans
+- network-wide effects
+- sanctions
+- reciprocal rewards
+nodes:
+- plant1
+- plant2
+- fungus
+edges:
+- source: fungus
+  target: plant1
+  flow_type: nutrients
+  form: mutualism
+- source: plant1
+  target: fungus
+  flow_type: nutrients
+  form: mutualism
+- source: fungus
+  target: plant2
+  flow_type: nutrients
+  form: mutualism
+- source: plant2
+  target: fungus
+  flow_type: nutrients
+  form: mutualism
+status: starter

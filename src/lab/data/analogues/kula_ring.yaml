@@ -1,0 +1,32 @@
+id: kula_ring
+name: Kula ring
+description: Armshells and necklaces circulate in opposite directions around an island
+  ring; the exchange creates enduring partnerships rather than profit.
+themes:
+- gift and countergift
+- status through giving
+- delayed reciprocity
+- exchange that binds
+nodes:
+- a
+- b
+- c
+- d
+edges:
+- source: a
+  target: b
+  flow_type: recognition
+  form: gift
+- source: b
+  target: c
+  flow_type: recognition
+  form: gift
+- source: c
+  target: d
+  flow_type: recognition
+  form: gift
+- source: d
+  target: a
+  flow_type: recognition
+  form: gift
+status: starter

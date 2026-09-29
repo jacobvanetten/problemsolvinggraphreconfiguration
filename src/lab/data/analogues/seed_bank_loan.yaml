@@ -1,0 +1,27 @@
+id: seed_bank_loan
+name: Community seed bank with loans repaid in seed
+description: Farmers borrow seed and return more seed after harvest; the bank stays
+  alive through returns.
+themes:
+- reciprocity in kind
+- keeping one's word
+- shared stock
+- seed exchange
+nodes:
+- farmer
+- bank
+- other_farmer
+edges:
+- source: bank
+  target: farmer
+  flow_type: seed
+  form: obligation
+- source: farmer
+  target: bank
+  flow_type: seed
+  form: obligation
+- source: bank
+  target: other_farmer
+  flow_type: seed
+  form: obligation
+status: starter

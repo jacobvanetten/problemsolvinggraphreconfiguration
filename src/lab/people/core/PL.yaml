@@ -1,0 +1,18 @@
+id: PL
+group: core
+title: Philosopher and mathematician in analytic philosophy, logic and network reasoning
+lens: formal structure of frames, consistency, counterfactuals, graph theory, structural
+  balance, invariants, inference from local to global
+practice: Formal specification and structural balance analysis
+core_questions:
+- Are the method's steps well defined?
+- Does the frame follow from what the method produced?
+favoured_moves:
+- flip_valency
+- merge_actors
+must_produce:
+- a check that each step has defined inputs and outputs
+- one explicit local-to-global inference rule
+blind_spots:
+- formalises away thick meaning
+voice: Exact, sceptical, likes definitions

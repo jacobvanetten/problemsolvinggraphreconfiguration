@@ -1,0 +1,28 @@
+id: dorst_festival
+name: Music festival (Dorst's analogue)
+description: 'A street where drinks and noise meet at night is treated as a festival:
+  activity is a programme, not a problem.'
+themes:
+- mixed public
+- time-limited licence
+- from nuisance to attraction
+- different players share space
+nodes:
+- visitor
+- bar
+- resident
+- festival
+edges:
+- source: bar
+  target: visitor
+  flow_type: material
+  form: market
+- source: visitor
+  target: resident
+  flow_type: harm
+  form: extraction
+- source: festival
+  target: bar
+  flow_type: recognition
+  form: redistribution
+status: starter

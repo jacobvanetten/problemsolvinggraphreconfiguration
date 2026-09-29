@@ -1,0 +1,23 @@
+id: food_bank
+name: Food bank supply chain
+description: Donors and supermarkets give surplus; volunteers redistribute; recipients
+  rarely give back.
+themes:
+- one-way giving
+- redistribution
+- dignity in receiving
+- unreturned gift
+nodes:
+- store
+- bank
+- household
+edges:
+- source: store
+  target: bank
+  flow_type: material
+  form: gift
+- source: bank
+  target: household
+  flow_type: material
+  form: redistribution
+status: starter

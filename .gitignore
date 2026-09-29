@@ -4,3 +4,5 @@ __pycache__/
 .pytest_cache/
 *.html
 !docs/**/*.html
+runs/
+dry_run_workspace/

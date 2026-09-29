@@ -1,0 +1,37 @@
+[
+ {
+  "id": "generative",
+  "name": "Generativity",
+  "description": "Best reliably produces frames that shift the problem. Evidence: frame worths from the blind study and the frames in the digest."
+ },
+ {
+  "id": "teachable",
+  "name": "Teachability",
+  "description": "Best can be run by a breeding team of 4 to 10 from the written protocol alone. Evidence: stuck points, interpretation notes, and how the reference team fared."
+ },
+ {
+  "id": "robust",
+  "name": "Robustness",
+  "description": "Best gives similar quality across executors and trials. Evidence: differences between the cross-pair and reference-team runs, and between Trial 1 and Trial 2."
+ },
+ {
+  "id": "reach",
+  "name": "Perspective reach",
+  "description": "Best has explicit steps that reach non-human and marginal human perspectives, and these steps did work in trials."
+ },
+ {
+  "id": "scales",
+  "name": "Local and global coherence",
+  "description": "Best checks both local and global properties and handles conflicts between them. Evidence: steps and trial outputs."
+ },
+ {
+  "id": "traceable",
+  "name": "Traceability",
+  "description": "Best lets a reader trace each frame back to evidence, steps and perspectives."
+ },
+ {
+  "id": "economy",
+  "name": "Economy",
+  "description": "Best achieves its results with the least time and effort for a real team, relative to what it produces."
+ }
+]

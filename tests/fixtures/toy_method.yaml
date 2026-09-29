@@ -1,0 +1,54 @@
+# Four-step protocol for tests: two named operators, one invented operator via apply_edits,
+# one deliberately ambiguous step (S3).
+name: Toy loop-closing route
+purpose: Read the field, close one open loop, invent one operator of our own, then state a frame.
+network_stance: uses
+stance_reason: The toy needs exchange structure to find the open loop.
+representations: Motif list and consequence reports.
+steps:
+  - id: S1
+    name: Read the field
+    roles: [anthropologist]
+    inputs: [network]
+    action: List the motifs and read the global metrics.
+    tools: [list_motifs, get_metrics]
+    output: {type: motif list, schema_hint: ids}
+    done_when: at least one open loop is named
+    max_calls: 3
+  - id: S2
+    name: Close a loop
+    roles: [mathematician]
+    inputs: [S1]
+    action: Apply close_loop to the first open loop from S1 and read the consequence report.
+    tools: [apply_operators]
+    output: {type: consequence note, schema_hint: who gains}
+    done_when: the report is read
+    max_calls: 3
+  - id: S3
+    name: Balance the readings
+    roles: [agronomist]
+    inputs: [S2]
+    action: Somehow balance the local and global readings as appropriate.
+    tools: [get_metrics]
+    output: {type: balance note, schema_hint: disagreements}
+    done_when: disagreements are listed
+    max_calls: 3
+  - id: S4
+    name: Invented operator and frame
+    roles: [designer]
+    inputs: [S2, S3]
+    action: Describe an operator of your own in prose, perform it with apply_edits, then state a frame.
+    tools: [apply_edits]
+    output: {type: frame statement, schema_hint: Dorst form}
+    done_when: a frame is stated
+    max_calls: 3
+how_themes: Themes come from open loops.
+how_perspectives: Ego views of two actors.
+how_analogues: None in this toy.
+how_scales: Local and global metrics are read for every operator.
+how_paradox: Stated once, then set aside.
+how_frame: Dorst's form, tied to the consequence note.
+human_role: Team members run the steps.
+stopping_rules: Stop after S4.
+failure_modes: Ambiguity in S3.
+budget_calls: 16

@@ -1,0 +1,23 @@
+id: gleaning
+name: Gleaning after harvest
+description: Poor households collect what remains after harvest; owners permit it
+  by custom.
+themes:
+- customary claim
+- tolerated taking
+- obligation to the poor
+- redistribution by custom
+nodes:
+- owner
+- gleaner
+- field
+edges:
+- source: field
+  target: owner
+  flow_type: material
+  form: gift
+- source: owner
+  target: gleaner
+  flow_type: material
+  form: redistribution
+status: starter

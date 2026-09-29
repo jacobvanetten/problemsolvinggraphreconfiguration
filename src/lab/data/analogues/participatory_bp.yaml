@@ -1,0 +1,27 @@
+id: participatory_bp
+name: Participatory plant breeding
+description: Farmers evaluate lines in their fields; breeders return selected material
+  and share credit.
+themes:
+- farmers as evaluators
+- return of selected material
+- shared credit
+- knowledge exchange
+nodes:
+- farmer
+- breeder
+- line
+edges:
+- source: farmer
+  target: breeder
+  flow_type: knowledge
+  form: gift
+- source: breeder
+  target: farmer
+  flow_type: seed
+  form: gift
+- source: line
+  target: farmer
+  flow_type: material
+  form: script
+status: starter

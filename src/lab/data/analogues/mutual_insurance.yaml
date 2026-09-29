@@ -1,0 +1,27 @@
+id: mutual_insurance
+name: Mutual crop insurance
+description: Farmers pool risk; payouts in bad years are funded by premiums in good
+  years.
+themes:
+- risk sharing
+- obligation to the pool
+- trust
+- delayed reciprocity
+nodes:
+- f1
+- f2
+- pool
+edges:
+- source: f1
+  target: pool
+  flow_type: money
+  form: obligation
+- source: f2
+  target: pool
+  flow_type: money
+  form: obligation
+- source: pool
+  target: f1
+  flow_type: risk
+  form: redistribution
+status: starter

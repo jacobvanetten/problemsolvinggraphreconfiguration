@@ -1,19 +1,30 @@
 [project]
 name = "signedgraph"
 version = "0.1.0"
-description = "Signed directed graphs with source passages: path signs, cycle polarity and edge-flip analysis"
+description = "Signed directed graphs with source passages, plus a method design lab for the reframing step"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "anthropic>=1.9.0",
+    "jinja2>=3.1.6",
     "networkx>=3.7",
+    "numpy>=2.5.3",
     "pandas>=3.0.6",
     "pydantic>=2.13.5",
     "pyvis>=0.3.2",
+    "pyyaml>=6.0.3",
+    "scipy>=1.18.1",
 ]
+
+[project.scripts]
+lab = "lab.cli:main"
 
 [build-system]
 requires = ["uv_build>=0.8.17,<0.9.0"]
 build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = ["signedgraph", "lab"]
 
 [dependency-groups]
 dev = [
@@ -22,3 +33,4 @@ dev = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = ["slow: full mock pipeline runs (minutes); deselect with -m \"not slow\""]

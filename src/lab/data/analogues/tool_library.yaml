@@ -1,0 +1,27 @@
+id: tool_library
+name: Tool library
+description: Members borrow tools and return them; the tools themselves shape who
+  joins.
+themes:
+- borrowing and returning
+- artefact as mediator
+- shared stock
+- care for common goods
+nodes:
+- member
+- library
+- tool
+edges:
+- source: library
+  target: member
+  flow_type: material
+  form: obligation
+- source: member
+  target: library
+  flow_type: material
+  form: obligation
+- source: tool
+  target: member
+  flow_type: labour
+  form: script
+status: starter

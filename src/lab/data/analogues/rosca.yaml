@@ -1,0 +1,32 @@
+id: rosca
+name: Rotating savings association
+description: Members each pay in every round and take turns receiving the pot; obligation
+  to keep paying is enforced by shared reputation.
+themes:
+- keeping one's word
+- obligation held by the group
+- trust without institutions
+- reciprocity over time
+nodes:
+- m1
+- m2
+- m3
+- m4
+edges:
+- source: m1
+  target: m2
+  flow_type: money
+  form: obligation
+- source: m2
+  target: m3
+  flow_type: money
+  form: obligation
+- source: m3
+  target: m4
+  flow_type: money
+  form: obligation
+- source: m4
+  target: m1
+  flow_type: money
+  form: obligation
+status: starter

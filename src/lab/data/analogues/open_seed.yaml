@@ -1,0 +1,27 @@
+id: open_seed
+name: Open-source seed licence
+description: Seed is shared under a licence that requires later users to share their
+  improvements.
+themes:
+- share-alike obligation
+- commons of seed
+- return of improvements
+- reciprocity by rule
+nodes:
+- breeder
+- farmer
+- commons
+edges:
+- source: commons
+  target: breeder
+  flow_type: seed
+  form: gift
+- source: breeder
+  target: commons
+  flow_type: seed
+  form: obligation
+- source: commons
+  target: farmer
+  flow_type: seed
+  form: gift
+status: starter
